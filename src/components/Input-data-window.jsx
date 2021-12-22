@@ -55,6 +55,11 @@ const InputDataWindow = () => {
     }
   };
 
+  const foo = async(e) => {    
+    const uri = await getBase64Img(e.target.files[0]);
+    setBookCover(uri);
+  }
+
   return (
     <div className="input-container">
       <div className="input-data  col">
@@ -84,9 +89,11 @@ const InputDataWindow = () => {
           id="upload"
           type="file"
           accept="image/*"
-          onChange={(e) => {
-            getBase64Img(e, setBookCover);
-          }}
+          onChange={ foo
+          //   (e) => {
+          //   getBase64Img(e, setBookCover);
+          // }
+        }
         />
         <label htmlFor="upload" className="mgb-12">
           <svg width="20" height="17" viewBox="0 0 20 17">
